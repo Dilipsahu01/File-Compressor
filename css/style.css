@@ -306,11 +306,47 @@ button, .btn-success, .btn-danger, .btn-warning {
 
 .hidden { display: none !important; }
 
-footer {
-    text-align: center;
-    padding: 1rem;
+.footer-panel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+    padding: 1.5rem;
+    text-align: left;
+    font-size: 0.9rem;
     color: var(--text-secondary);
-    font-size: 0.85rem;
+}
+
+.footer-info p {
+    margin-bottom: 0.4rem;
+}
+
+.footer-info p:last-child {
+    margin-bottom: 0;
+}
+
+.link-highlight {
+    color: #818cf8;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s ease;
+}
+
+.link-highlight:hover {
+    color: #a5b4fc;
+    text-decoration: underline;
+}
+
+.cost-note {
+    font-size: 0.8rem;
+    color: var(--success-color);
+    font-weight: 500;
+}
+
+.hero-btn {
+    white-space: nowrap;
+    text-decoration: none;
 }
 
 /* Responsive */
@@ -320,4 +356,13 @@ footer {
     .file-actions { width: 100%; justify-content: space-between; }
     .file-actions a, .file-actions button { flex: 1; }
     .action-bar { justify-content: center; }
+    .footer-panel {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    .hero-btn {
+        width: 100%;
+        text-align: center;
+    }
 }
