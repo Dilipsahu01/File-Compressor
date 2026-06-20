@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A private, client-side file compressor with batch processing, PDF compression, and Indian Govt form presets.">
+    <title>Privacy-First File Compressor</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- PDF.js for parsing PDFs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+    <!-- jsPDF for creating compressed PDFs -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- JSZip for batch downloads -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <!-- heic2any for iPhone HEIC photo support -->
+    <script src="https://unpkg.com/heic2any@0.0.4/dist/heic2any.min.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <header class="header">
+            <h1>File Compressor Pro</h1>
+            <p class="subtitle">Batch compress Images (incl. HEIC) & PDFs. <span class="highlight">100% Client-Side.</span></p>
+        </header>
+
+        <main class="main-content">
+            <div class="settings-panel panel-glass">
+                <div class="settings-grid">
+                    <div class="control-group">
+                        <label for="preset-select">Indian Govt Portals / Presets</label>
+                        <div class="input-with-unit">
+                            <select id="preset-select">
+                                <option value="custom">Custom Target Size</option>
+                                <option value="50">Passport Photo (≤ 50KB)</option>
+                                <option value="20">PAN/Aadhaar Signature (≤ 20KB)</option>
+                                <option value="100">UPSC/Exam Photo (≤ 100KB)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="global-target-size">Target Size Limit</label>
+                        <div class="input-with-unit" id="target-size-container">
+                            <input type="number" id="global-target-size" value="100" min="5" max="50000" step="5">
+                            <span class="unit">KB</span>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="global-format">Format (Images Only)</label>
+                        <div class="input-with-unit">
+                            <select id="global-format">
+                                <option value="image/jpeg">JPEG (Recommended)</option>
+                                <option value="image/webp">WEBP (Modern)</option>
+                                <option value="image/png">PNG (Transparent)</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="control-group">
+                        <label for="worker-limit">Concurrent Files (CPU)</label>
+                        <div class="input-with-unit">
+                            <input type="range" id="worker-limit" min="1" max="8" step="1" style="cursor: ew-resize;">
+                            <span class="unit" id="worker-limit-display" style="min-width: 45px; text-align: center;">Auto</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="upload-section" class="upload-area mt-20">
+                <input type="file" id="file-input" accept="image/*, application/pdf, .heic" multiple hidden>
+                <div class="upload-content">
+                    <svg class="upload-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"></path>
+                    </svg>
+                    <h3>Drag & Drop multiple Files here</h3>
+                    <p>or tap to browse</p>
+                    <button class="btn-primary" onclick="document.getElementById('file-input').click()">Browse Files</button>
+                    <p class="formats">Supports JPG, PNG, WEBP, HEIC, PDF</p>
+                    <p style="font-size: 0.75rem; color: var(--warning-color); margin-top: 5px;">⚠️ PDFs will be flattened into images (strips selectable text)</p>
+                </div>
+            </div>
+
+            <div class="action-bar hidden" id="global-action-bar">
+                <button id="download-all-btn" class="btn-primary">
+                    <svg class="icon-inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+                    Download All as ZIP (<span id="zip-count">0</span>)
+                </button>
+            </div>
+
+            <div id="file-list" class="file-list">
+                <!-- File cards will be injected here -->
+            </div>
+        </main>
+        
+        <footer>
+            <p>Runs safely in your browser. Handles massive batches. Files are never uploaded.</p>
+        </footer>
+    </div>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
