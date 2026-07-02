@@ -308,13 +308,14 @@ button, .btn-success, .btn-danger, .btn-warning {
 
 .footer-panel {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    gap: 1.5rem;
+    flex-direction: column;
+    gap: 0.8rem;
     margin-top: 2rem;
     padding: 1.5rem;
-    text-align: left;
-    font-size: 0.9rem;
+    text-align: center;
+    font-size: 1rem;
     color: var(--text-secondary);
 }
 
