@@ -264,17 +264,17 @@ button, .btn-success, .btn-danger, .btn-warning {
 
 .icon-inline { width: 18px; height: 18px; }
 
-.btn-primary { background: var(--primary-color); color: var(--input-text); }
+.btn-primary { background: var(--primary-color); color: var(--btn-text); }
 .btn-primary:hover { background: var(--primary-hover); }
 
-.btn-success { background: var(--success-color); color: var(--input-text); padding: 0.5rem 1rem; }
+.btn-success { background: var(--success-color); color: var(--btn-text); padding: 0.5rem 1rem; }
 .btn-success:hover { background: var(--success-hover); }
 
 .btn-danger { background: rgba(239, 68, 68, 0.2); color: var(--danger-color); padding: 0.5rem 1rem; border: 1px solid rgba(239, 68, 68, 0.5); }
-.btn-danger:hover { background: var(--danger-color); color: var(--input-text); }
+.btn-danger:hover { background: var(--danger-color); color: var(--btn-text); }
 
 .btn-warning { background: rgba(245, 158, 11, 0.2); color: var(--warning-color); padding: 0.5rem 1rem; border: 1px solid rgba(245, 158, 11, 0.5); }
-.btn-warning:hover { background: var(--warning-color); color: var(--input-text); }
+.btn-warning:hover { background: var(--warning-color); color: var(--btn-text); }
 
 
 /* Action Bar */
