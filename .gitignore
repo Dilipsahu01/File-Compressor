@@ -1,9 +1,11 @@
 # Node dependencies
 node_modules/
+package.json
 package-lock.json
 
-# Test scripts
+# Test & utility scripts
 test_script.js
+replace_css.py
 generate_pdf.py
 
 # Local testing assets
