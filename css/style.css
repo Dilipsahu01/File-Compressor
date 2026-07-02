@@ -344,22 +344,6 @@ button, .btn-success, .btn-danger, .btn-warning {
     font-weight: 500;
 }
 
-.hero-btn {
-    white-space: nowrap;
-    text-decoration: none;
-    font-size: 1.1rem;
-    padding: 0.9rem 1.8rem;
-    border-radius: 10px;
-    background: linear-gradient(135deg, var(--primary-color), #818cf8);
-    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.35);
-    transition: all 0.25s ease;
-}
-
-.hero-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(99, 102, 241, 0.5);
-    background: linear-gradient(135deg, var(--primary-hover), #4f46e5);
-}
 
 /* Responsive */
 @media (max-width: 768px) {
@@ -373,8 +357,5 @@ button, .btn-success, .btn-danger, .btn-warning {
         text-align: center;
         gap: 1rem;
     }
-    .hero-btn {
-        width: 100%;
-        text-align: center;
-    }
+
 }
